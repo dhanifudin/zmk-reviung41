@@ -24,7 +24,7 @@
    &mt KP_PLUS TAB &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &mt KP_EQUAL KP_MINUS
    &mt LCTRL ESC   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &mt RCTRL SQT
    &mt LALT LBKT   &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt RALT RBKT
-                        &lt LOWER LBRC  &mt LGUI SPC &mt LSHFT RET &mt RGUI BSPC &lt RAISE RBRC
+                        &mo 1  &mt LGUI SPC &mt LSHFT RET &mt RGUI BSPC &mo 2
                         >;
                 };
 
@@ -59,14 +59,14 @@
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
 // | RGB BRI+ | RGB SAT+ | RGB HUE+ | RGB ANI+ |    | RGB TOG |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
-// | RGB BRI- | RGB SAT- | RGB HUE- | RGB ANI+ |    |         |   |  BT_NEXT     | BT_PREV    | BRIGHT UP    | BRIGHT DOWN    | VOL DOWN    | VOL UP       |
-// | Toggle BLE    | SLEEP MODE | POWER OFF | POWER OFF (C) |    |         |   | RESET |     |     |     |     |        |
+// | RGB BRI- | RGB SAT- | RGB HUE- | RGB ANI- |    |         |   |       |     |     |     |     |        |
+// |          |          |          |          |    |         |   | RESET |     |     |     |     |        |
 //                                              |     |     |     |     |     |
                         bindings = <
    &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
-   &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none             &bt BT_NXT        &bt BT_PRV        &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP
-   &trans	           &out OUT_BLE           &out OUT_USB           &out OUT_TOG           &none &reset              &kp C_PREV       &kp C_PP        &kp C_NEXT       &none        &none        &none
-                                                             &trans      &trans       &trans    &trans      &trans
+   &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none              &none        &none        &none        &none        &none        &none
+   &none           &none           &none           &none           &none &none              &reset       &none        &none        &none        &none        &none
+                                                             &trans      &trans       &tog 3        &trans      &trans
                         >;
                 };
         };

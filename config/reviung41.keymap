@@ -23,7 +23,7 @@
 // | ALT/[    | Z | X | C     | V       | B     | N  | M    | ,     | . | / | ALT/]  |
 //                    | LWR/{ | GUI/SPC |  SHFT/RET  | BSPC | RSE/} |
                         bindings = <
-   &mt TAB     &kp Q &kp W &kp E       &kp R      &kp T   &kp Y &kp U       &kp I       &kp O   &kp P    &mt MINUS
+   &kp TAB     &kp Q &kp W &kp E       &kp R      &kp T   &kp Y &kp U       &kp I       &kp O   &kp P    &kp MINUS
    &mt LC ESC  &kp A &kp S &kp D       &kp F      &kp G   &kp H &kp J       &kp K       &kp L   &kp SEMI &mt RC SQT
    &mt LA LBKT &kp Z &kp X &kp C       &kp V      &kp B   &kp N &kp M       &kp COMMA   &kp DOT &kp FSLH &mt RA RBKT
                            &lt L1 LBRC &mt LG SPC &mt LS RET    &mt RG BSPC &lt L2 RBRC

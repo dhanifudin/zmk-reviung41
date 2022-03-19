@@ -12,6 +12,7 @@
 
 #define L1 1
 #define L2 2
+#define L3 3
 
 &mt {
   tapping-term-ms = <500>;
@@ -28,10 +29,10 @@
 // | SHFT/{   | Z | X | C     | V       | B     | N  | M       | ,     | . | / | SHFT/} |
 //                    | ALT/( | LWR/SPC |  GUI/BSPC  | RSE/RET | ALT/) |
         bindings = <
-   &kp TAB        &kp Q &kp W &kp E         &kp R      &kp T   &kp Y &kp U      &kp I       &kp O   &kp P    &kp MINUS
-   &mt LCTRL ESC  &kp A &kp S &kp D         &kp F      &kp G   &kp H &kp J      &kp K       &kp L   &kp SEMI &mt RCTRL SQT
-   &mt LSHFT LBRC &kp Z &kp X &kp C         &kp V      &kp B   &kp N &kp M      &kp COMMA   &kp DOT &kp FSLH &mt RSHFT RBRC
-                              &mt LALT LPAR &lt L1 SPC &mt LGUI BSPC &lt L2 RET &mt RALT RPAR
+   &kp GRAVE      &kp Q      &kp W      &kp E    &kp R    &kp T    &kp Y    &kp U    &kp I     &kp O      &kp P         &kp MINUS
+   &mt LCTRL ESC  &mt LALT A &mt LGUI S &mt L3 D &mt L2 F &mt L1 G &mt L1 H &mt L2 J &mt L3 K  &mt RGUI L &mt RALT SEMI &mt RCTRL SQT
+   &mt LSHFT LBRC &kp Z      &kp X      &kp C    &kp V    &kp B    &kp N    &kp M    &kp COMMA &kp DOT    &kp FSLH      &mt RSHFT RBRC
+                              &mt DEL LPAR &kp SPC &mt TAB &kp RET &mt BSPC RPAR
                   >;
       };
 
@@ -42,10 +43,10 @@
 // |      |   |   |   |   |   |   |   |   |   |   |  \   |
 //                |   |       |   |   |
       bindings = <
-   &kp GRAVE &kp N1 &kp N2 &kp N3  &kp N4  &kp N5 &kp N6  &kp N7  &kp N8 &kp N9 &kp N0 &kp EQUAL
-   &kp BSPC  &kp N6 &kp N7 &kp N8  &kp N9  &kp N0 &trans  &trans  &trans &trans &trans &kp BSPC
-   &mo 3     &trans &trans &trans  &trans  &trans &trans  &trans  &trans &trans &trans &kp BSLH
-                           &trans  &trans  &trans &trans  &trans
+   &trans   &kp N1 &kp N2 &kp N3  &kp N4  &kp N5 &kp N6  &kp N7  &kp N8 &kp N9 &kp N0 &kp EQUAL
+   &kp BSPC &kp N6 &kp N7 &kp N8  &kp N9  &kp N0 &trans  &trans  &trans &trans &trans &kp BSPC
+   &trans   &trans &trans &trans  &trans  &trans &trans  &trans  &trans &trans &trans &kp BSLH
+                          &trans  &trans  &trans &trans  &trans
                   >;
       };
 
@@ -58,7 +59,7 @@
       bindings = <
    &kp TILDE &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR &kp PLUS
    &trans    &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT       &kp LEFT  &kp DOWN &kp UP   &kp RIGHT &trans   &kp BSPC
-   &mo 3     &trans    &trans   &trans   &trans   &trans         &trans    &trans   &trans   &trans    &trans   &kp PIPE
+   &trans    &trans    &trans   &trans   &trans   &trans         &trans    &trans   &trans   &trans    &trans   &kp PIPE
                                          &trans   &trans &trans  &trans    &trans
                 >;
       };
@@ -73,7 +74,7 @@
    &none &none      &none        &none        &reset &none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
    &none &none      &none        &none        &none  &none        &none        &none        &none        &none        &none        &none
    &none &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &none  &out OUT_BLE &none        &kp C_PP     &kp C_PREV   &kp C_NEXT   &none        &none
-                                 &trans       &trans &tog 3                    &trans       &trans
+                                 &trans       &trans &trans                    &trans       &trans
                   >;
       };
     };

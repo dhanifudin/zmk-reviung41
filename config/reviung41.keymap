@@ -30,7 +30,7 @@
 //                    | ALT/( | LWR/SPC |  GUI/BSPC  | RSE/RET | ALT/) |
         bindings = <
    &kp GRAVE      &kp Q      &kp W      &kp E    &kp R    &kp T    &kp Y    &kp U    &kp I     &kp O      &kp P         &kp MINUS
-   &mt LCTRL ESC  &mt LALT A &mt LGUI S &mt L3 D &mt L2 F &mt L1 G &mt L1 H &mt L2 J &mt L3 K  &mt RGUI L &mt RALT SEMI &mt RCTRL SQT
+   &mt LCTRL ESC  &mt LALT A &mt LGUI S &lt L3 D &lt L2 F &lt L1 G &lt L1 H &lt L2 J &lt L3 K  &mt RGUI L &mt RALT SEMI &mt RCTRL SQT
    &mt LSHFT LBRC &kp Z      &kp X      &kp C    &kp V    &kp B    &kp N    &kp M    &kp COMMA &kp DOT    &kp FSLH      &mt RSHFT RBRC
                               &mt DEL LPAR &kp SPC &mt TAB &kp RET &mt BSPC RPAR
                   >;

@@ -14,10 +14,6 @@
 #define L2 2
 #define L3 3
 
-&mt {
-  tapping-term-ms = <500>;
-};
-
 / {
     keymap {
       compatible = "zmk,keymap";

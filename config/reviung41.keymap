@@ -15,8 +15,8 @@
 #define L3 3
 
 &lt {
-  tapping-term-ms = <150>;
-  flavor = "tap-unless-interrupted";
+  tapping-term-ms = <100>;
+  flavor = "tap-preferred";
 };
 
 / {
@@ -25,7 +25,7 @@
       compatible = "zmk,behavior-hold-tap";
       label = "LEFT_POSITIONAL_HOLD_TAP";
       #binding-cells = <2>;
-      flavor = "tap-unless-interrupted";
+      flavor = "tap-preferred";
       tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
       quick-tap-ms = <200>;
       bindings = <&kp>, <&kp>;
@@ -36,7 +36,7 @@
       compatible = "zmk,behavior-hold-tap";
       label = "RIGHT_POSITIONAL_HOLD_TAP";
       #binding-cells = <2>;
-      flavor = "tap-unless-interrupted";
+      flavor = "tap-preferred";
       tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
       quick-tap-ms = <200>;
       bindings = <&kp>, <&kp>;

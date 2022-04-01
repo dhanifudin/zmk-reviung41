@@ -12,26 +12,43 @@
 
 #define L1 1
 #define L2 2
+#define L3 3
 
 &mt {
-  tapping-term-ms = <500>;
+  tapping-term-ms = <300>;
+};
+
+&lt {
+  tapping-term-ms = <300>;
 };
 
 / {
+    behaviors {
+      hm: homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping-term-ms = <200>;
+        quick-tap-ms = <0>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+      };
+    };
+
     keymap {
       compatible = "zmk,keymap";
 
       default_layer {
-// --------------------------------------------------------------------------------------
-// | TAB      | Q | W | E     | R       | T     | Y  | U       | I     | O | P |  -     |
-// | CTRL/ESC | A | S | D     | F       | G     | H  | J       | K     | L | ; | CTRL/' |
-// | SHFT/{   | Z | X | C     | V       | B     | N  | M       | ,     | . | / | SHFT/} |
-//                    | ALT/( | LWR/SPC |  GUI/BSPC  | RSE/RET | ALT/) |
+// ---------------------------------------------------------------------
+// | Q | W | E | R   |    T    | ?? | ?? |    Y    | U    | I  | O | P |
+// | A | S | D | F   |    G    | ?? | ?? |    H    | J    | K  | L | ; |
+// | Z | X | C | V   |    B    | ?? | ?? |    N    | M    | ,  | . | / |
+//             | TAB | LWR/SPC | ADJ/ESC | RSE/RET | BSPC |
         bindings = <
-   &kp TAB        &kp Q &kp W &kp E         &kp R      &kp T   &kp Y &kp U      &kp I       &kp O   &kp P    &kp MINUS
-   &mt LCTRL ESC  &kp A &kp S &kp D         &kp F      &kp G   &kp H &kp J      &kp K       &kp L   &kp SEMI &mt RCTRL SQT
-   &mt LSHFT LBRC &kp Z &kp X &kp C         &kp V      &kp B   &kp N &kp M      &kp COMMA   &kp DOT &kp FSLH &mt RSHFT RBRC
-                              &mt LALT LPAR &lt L1 SPC &mt LGUI BSPC &lt L2 RET &mt RALT RPAR
+   &kp Q       &kp W      &kp E      &kp R   &kp T      &none  &none &kp Y      &kp U    &kp I          &kp O        &kp P
+   &hm LCTRL A &kp S      &kp D      &kp F   &kp G      &none  &none &kp H      &kp J    &kp K          &kp L        &hm RCTRL SEMI
+   &hm LSHFT Z &hm LALT X &hm LGUI C &kp V   &kp B      &none  &none &kp N      &kp M    &hm RGUI COMMA &hm RALT DOT &hm RSHFT FSLH
+                                     &kp TAB &lt L1 SPC &lt L3 ESC   &lt L2 RET &kp BSPC
                   >;
       };
 
@@ -42,9 +59,9 @@
 // |      |   |   |   |   |   |   |   |   |   |   |  \   |
 //                |   |       |   |   |
       bindings = <
-   &kp GRAVE &kp N1 &kp N2 &kp N3  &kp N4  &kp N5 &kp N6  &kp N7  &kp N8 &kp N9 &kp N0 &kp EQUAL
-   &kp BSPC  &kp N6 &kp N7 &kp N8  &kp N9  &kp N0 &trans  &trans  &trans &trans &trans &kp BSPC
-   &mo 3     &trans &trans &trans  &trans  &trans &trans  &trans  &trans &trans &trans &kp BSLH
+   &kp N1 &kp N2 &kp N3  &kp N4  &kp N5 &trans &trans &kp N6  &kp N7  &kp N8 &kp N9 &kp N0
+   &kp N6 &kp N7 &kp N8  &kp N9  &kp N0 &trans &trans &trans  &trans  &trans &trans &trans
+   &trans &trans &trans  &trans  &trans &trans &trans &trans  &trans  &trans &trans &trans
                            &trans  &trans  &trans &trans  &trans
                   >;
       };
@@ -56,10 +73,10 @@
 // |      |   |   |   |   |   |     |     |     |     |   |  |   |
 //                |   |   |         |     |
       bindings = <
-   &kp TILDE &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR &kp PLUS
-   &trans    &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT       &kp LEFT  &kp DOWN &kp UP   &kp RIGHT &trans   &kp BSPC
-   &mo 3     &trans    &trans   &trans   &trans   &trans         &trans    &trans   &trans   &trans    &trans   &kp PIPE
-                                         &trans   &trans &trans  &trans    &trans
+   &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT &trans &trans &kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR
+   &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT  &trans &trans &kp LEFT  &kp DOWN &kp UP   &kp RIGHT &trans
+   &trans    &trans   &trans   &trans   &trans    &trans &trans &trans    &trans   &trans   &trans    &trans
+                               &trans   &trans    &trans        &trans    &trans
                 >;
       };
 
@@ -70,10 +87,10 @@
 // |   | MUTE | VOL- | VOL+ |       | BLE |     | PLAY | PREV | NEXT |     |        |
 //                   |      |       |           |      |      |
         bindings = <
-   &none &none      &none        &none        &reset &none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
-   &none &none      &none        &none        &none  &none        &none        &none        &none        &none        &none        &none
-   &none &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &none  &out OUT_BLE &none        &kp C_PP     &kp C_PREV   &kp C_NEXT   &none        &none
-                                 &trans       &trans &tog 3                    &trans       &trans
+   &none      &none        &none        &reset       &none        &none &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+   &none      &none        &none        &bootloader  &none        &none &none      &none        &none        &none        &none        &none
+   &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &none        &out OUT_BLE &none &none      &none        &kp C_PP     &kp C_PREV   &kp C_NEXT   &none
+                                        &trans       &trans       &trans           &trans       &trans
                   >;
       };
     };

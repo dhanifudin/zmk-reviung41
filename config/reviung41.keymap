@@ -45,10 +45,10 @@
 // | Z | X | C | V   |    B    | ?? | ?? |    N    | M    | ,  | . | / |
 //             | TAB | LWR/SPC | ADJ/ESC | RSE/RET | BSPC |
         bindings = <
-   &kp Q       &kp W      &kp E      &kp R   &kp T      &none  &none &kp Y      &kp U    &kp I          &kp O        &kp P
-   &hm LCTRL A &kp S      &kp D      &kp F   &kp G      &none  &none &kp H      &kp J    &kp K          &kp L        &hm RCTRL SEMI
-   &hm LSHFT Z &hm LALT X &hm LGUI C &kp V   &kp B      &none  &none &kp N      &kp M    &hm RGUI COMMA &hm RALT DOT &hm RSHFT FSLH
-                                     &kp TAB &lt L1 SPC &lt L3 ESC   &lt L2 RET &kp BSPC
+   &kp Q       &kp W       &kp E      &kp R      &kp T      &none  &none &kp Y      &kp U    &kp I          &kp O        &kp P
+   &hm LCTRL A &hm LSHFT S &hm LALT D &hm LGUI F &kp G      &none  &none &kp H &hm RGUI J    &hm RALT K     &hm RSHT L   &hm RCTRL SEMI
+   &hm LSHFT Z &hm LALT  X &hm LGUI C &kp V      &kp B      &none  &none &kp N      &kp M    &hm RGUI COMMA &hm RALT DOT &hm RSHFT FSLH
+                                      &kp TAB    &lt L1 SPC &lt L3 ESC   &lt L2 RET &kp BSPC
                   >;
       };
 

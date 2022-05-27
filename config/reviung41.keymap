@@ -14,16 +14,6 @@
 #define L2 2
 #define L3 3
 
-#define LC LCTRL
-#define LS LSHFT
-#define LA LALT
-#define LG LGUI
-
-#define RC RCTRL
-#define RS RSHFT
-#define RA RALT
-#define RG RGUI
-
 &mt {
   tapping-term-ms = <300>;
 };
@@ -55,10 +45,10 @@
 // | SHFT/{   | Z | X | C     | V       | B     | N  | M       | ,     | . | / | SHFT/} |
 //                    | ALT/( | LWR/SPC |  GUI/BSPC  | RSE/RET | ALT/) |
       bindings = <
-   &kp TAB     &kp Q    &kp W    &kp E       &kp R      &kp T      &kp Y      &kp U      &kp I       &kp O    &kp P       &kp MINUS
-   &hm LC ESC  &hm LA A &hm LG S &kp D       &kp F      &kp G      &kp H      &kp J      &kp K       &hm LG L &hm LA SEMI &hm RC SQT
-   &hm LS LBRC &kp Z    &kp X    &kp C       &kp V      &kp B      &kp N      &kp M      &kp COMMA   &kp DOT  &kp FSLH    &hm RS RBRC
-                                 &mt LA LPAR &lt L1 SPC &lt L3 ESC &lt L2 RET &mt RA RPAR
+   &kp TAB        &kp Q      &kp W      &kp E       &kp R      &kp T      &kp Y      &kp U      &kp I       &kp O      &kp P         &kp MINUS
+   &hm LCTRL ESC  &hm LALT A &hm LGUI S &kp D       &kp F      &kp G      &kp H      &kp J      &kp K       &hm LGUI L &hm LALT SEMI &hm RCTRL SQT
+   &hm LSHFT LBRC &kp Z      &kp X      &kp C       &kp V      &kp B      &kp N      &kp M      &kp COMMA   &kp DOT    &kp FSLH      &hm RS RBRC
+                                        &mt LA LPAR &lt L1 SPC &lt L3 ESC &lt L2 RET &mt RA RPAR
       >;
     };
 

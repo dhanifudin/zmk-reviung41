@@ -33,6 +33,20 @@
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
 		};
+    td0: tap_dance_0 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_0";
+      #binding-cells = <0>;
+			tapping-term-ms = <200>;
+      bindings = <&kp LPAR>, <&kp LBKT>;
+    };
+    td1: tap_dance_1 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_1";
+      #binding-cells = <0>;
+			tapping-term-ms = <200>;
+      bindings = <&kp RPAR>, <&kp RBKT>;
+    }
 	};
 
 	keymap {
@@ -45,10 +59,10 @@
 // | SHFT/{   | Z | X | C     | V       | B     | N  | M       | ,     | . | / | SHFT/} |
 //                    | ALT/( | LWR/SPC |  GUI/BSPC  | RSE/RET | ALT/) |
       bindings = <
-   &kp TAB        &kp Q      &kp W      &kp E       &kp R      &kp T      &kp Y      &kp U      &kp I       &kp O      &kp P         &kp MINUS
-   &hm LCTRL ESC  &hm LALT A &hm LGUI S &kp D       &kp F      &kp G      &kp H      &kp J      &kp K       &hm LGUI L &hm LALT SEMI &hm RCTRL SQT
-   &hm LSHFT LBRC &kp Z      &kp X      &kp C       &kp V      &kp B      &kp N      &kp M      &kp COMMA   &kp DOT    &kp FSLH      &hm RSHFT RBRC
-                                        &mt LA LPAR &lt L1 SPC &lt L3 ESC &lt L2 RET &mt RA RPAR
+   &kp TAB        &kp Q      &kp W      &kp E &kp R      &kp T      &kp Y      &kp U &kp I     &kp O      &kp P         &kp MINUS
+   &hm LCTRL ESC  &hm LALT A &hm LGUI S &kp D &kp F      &kp G      &kp H      &kp J &kp K     &hm LGUI L &hm LALT SEMI &hm RCTRL SQT
+   &hm LSHFT LBRC &kp Z      &kp X      &kp C &kp V      &kp B      &kp N      &kp M &kp COMMA &kp DOT    &kp FSLH      &hm RSHFT RBRC
+                                        &td0  &lt L1 SPC &lt L3 ESC &lt L2 RET &td1
       >;
     };
 

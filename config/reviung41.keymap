@@ -33,18 +33,18 @@
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
 		};
-    td0: tap_dance_0 {
+    tdl: tap_dance_l {
       compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_0";
+      label = "TAP_DANCE_L";
       #binding-cells = <0>;
-			tapping-term-ms = <200>;
+			tapping-term-ms = <300>;
       bindings = <&kp LPAR>, <&kp LBKT>;
     };
-    td1: tap_dance_1 {
+    tdr: tap_dance_r {
       compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_1";
+      label = "TAP_DANCE_R";
       #binding-cells = <0>;
-			tapping-term-ms = <200>;
+			tapping-term-ms = <300>;
       bindings = <&kp RPAR>, <&kp RBKT>;
     };
 	};
@@ -62,7 +62,7 @@
    &kp TAB        &kp Q      &kp W      &kp E &kp R      &kp T      &kp Y      &kp U &kp I     &kp O      &kp P         &kp MINUS
    &hm LCTRL ESC  &hm LALT A &hm LGUI S &kp D &kp F      &kp G      &kp H      &kp J &kp K     &hm LGUI L &hm LALT SEMI &hm RCTRL SQT
    &hm LSHFT LBRC &kp Z      &kp X      &kp C &kp V      &kp B      &kp N      &kp M &kp COMMA &kp DOT    &kp FSLH      &hm RSHFT RBRC
-                                        &td0  &lt L1 SPC &lt L3 ESC &lt L2 RET &td1
+                                        &tdl  &lt L1 SPC &lt L3 ESC &lt L2 RET &tdr
       >;
     };
 

@@ -88,9 +88,9 @@
       // |      |   |   |   |   |   |     |     |     |     |   |  |   |
       //                |   |   |         |     |
       bindings = <
-        &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT &trans &trans &kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR
-        &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT  &trans &trans &kp LEFT  &kp DOWN &kp UP   &kp RIGHT &kp BSPC
-        &trans    &trans   &trans   &trans   &trans    &trans &trans &trans    &trans   &trans   &trans    &kp PIPE
+        &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT &trans &trans   &kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR
+        &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT  &trans &trans   &kp LEFT  &kp DOWN &kp UP   &kp RIGHT &trans
+        &trans    &trans   &trans   &trans   &trans    &trans &kp PIPE &trans    &trans   &trans   &trans    &trans
         &trans    &trans   &trans   &trans   &trans
         >;
     };
@@ -102,7 +102,7 @@
       // |   | MUTE | VOL- | VOL+ |       | BLE |     | PLAY | PREV | NEXT |     |        |
       //                   |      |       |           |      |      |
       bindings = <
-        &none      &none        &none        &reset      &none        &one         &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+        &none      &none        &none        &reset      &none        &none         &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
         &none      &none        &none        &bootloader &none        &none        &none      &none        &none        &none        &none        &none
         &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp         &out OUT_BLE &out OUT_BLE &none      &none        &kp C_PP     &kp C_PREV   &kp C_NEXT   &none
         &trans     &trans       &trans       &trans      &trans

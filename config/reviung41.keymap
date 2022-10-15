@@ -88,9 +88,9 @@
       // |      |   |   |   |   |   |     |     |     |     |   |  |   |
       //                |   |   |         |     |
       bindings = <
-        &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT &trans &trans & kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR
-        &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT  &trans &trans & kp LEFT  &kp DOWN &kp UP   &kp RIGHT &kp BSPC
-        &trans    &trans   &trans   &trans   &trans    &trans &trans & trans    &trans   &trans   &trans    &kp PIPE
+        &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT &trans &trans &kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR
+        &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT  &trans &trans &kp LEFT  &kp DOWN &kp UP   &kp RIGHT &kp BSPC
+        &trans    &trans   &trans   &trans   &trans    &trans &trans &trans    &trans   &trans   &trans    &kp PIPE
         &trans    &trans   &trans   &trans   &trans
         >;
     };

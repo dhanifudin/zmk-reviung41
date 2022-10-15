@@ -1,0 +1,112 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define L1 1
+#define L2 2
+#define L3 3
+#define L4 4
+
+&mt {
+  tapping-term-ms = <300>;
+};
+
+&lt {
+  tapping-term-ms = <300>;
+};
+
+/ {
+  behaviors {
+    hm: homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS";
+      #binding-cells = <2>;
+      tapping-term-ms = <200>;
+      quick-tap-ms = <0>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+    // tdl: tap_dance_l {
+    //    compatible = "zmk,behavior-tap-dance";
+    //    label = "TAP_DANCE_L";
+    //    #binding-cells = <0>;
+    //    tapping-term-ms = <300>;
+    //    bindings = <&kp LPAR>, <&kp LBKT>;
+    //  };
+    // tdr: tap_dance_r {
+    //    compatible = "zmk,behavior-tap-dance";
+    //    label = "TAP_DANCE_R";
+    //    #binding-cells = <0>;
+    //    tapping-term-ms = <300>;
+    //    bindings = <&kp RPAR>, <&kp RBKT>;
+    //  };
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+
+    default_layer {
+      // --------------------------------------------------------------------------------------
+      // | TAB      | Q | W | E     | R       | T     | Y  | U       | I     | O | P |  -     |
+      // | CTRL/ESC | A | S | D     | F       | G     | H  | J       | K     | L | ; | CTRL/' |
+      // | SHFT/{   | Z | X | C     | V       | B     | N  | M       | ,     | . | / | SHFT/} |
+      //                    | ALT/( | LWR/SPC |  GUI/BSPC  | RSE/RET | ALT/) |
+      bindings = <
+        &kp Q       &kp W       &kp E      &kp R      &kp T &kp LBKT  &kp RBKT  &kp Y &kp U      &kp I      &kp O       &kp P
+        &hm LCTRL A &hm LSHFT S &hm LALT D &hm LGUI F &kp G &kp MINUS &kp EQUAL &kp H &hm RGUI J &hm RALT K &hm RSHFT L &hm RCTRL SEMI
+        &kp Z       &kp X       &kp C      &kp V      &kp B &kp GRAVE &kp SQT   &kp N &kp M      &kp COMMA  &kp DOT     &kp FSLH
+        &lt L3 TAB  &lt L1 SPC  &kp ESC &lt L2 RET &kp BSPC
+        >;
+    };
+
+    lower_layer {
+      // -------------------------------------------------------
+      // | `    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |  =   |
+      // | BSPC | 6 | 7 | 8 | 9 | 0 |   |   |   |   |   | BSPC |
+      // |      |   |   |   |   |   |   |   |   |   |   |  \   |
+      //                |   |       |   |   |
+      bindings = <
+        &kp N1 &kp N2 &kp N3 &kp N4  &kp N5  &trans &trans   &kp N6   &kp N7    &kp N8    &kp N9  &kp N0
+        &kp N6 &kp N7 &kp N8 &kp N9  &kp N0  &trans &trans   &kp HOME &kp PG_DN &kp PG_UP &kp END &trans
+        &trans &trans &trans &trans  &trans  &trans &kp BSLH &trans   &trans    &trans    &trans  &trans
+        &trans &trans &trans &trans  &trans
+        >;
+    };
+
+    raise_layer {
+      // ---------------------------------------------------------------
+      // | ~    | ! | @ | # | $ | % |  ^  |  &  |  *  |  (  | ) |  +   |
+      // | BSPC | ^ | & | * | [ | ] | LFT | DWN |  UP | RGT | : | BSPC |
+      // |      |   |   |   |   |   |     |     |     |     |   |  |   |
+      //                |   |   |         |     |
+      bindings = <
+        &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT &trans &trans & kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR
+        &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT  &trans &trans & kp LEFT  &kp DOWN &kp UP   &kp RIGHT &kp BSPC
+        &trans    &trans   &trans   &trans   &trans    &trans &trans & trans    &trans   &trans   &trans    &kp PIPE
+        &trans    &trans   &trans   &trans   &trans
+        >;
+    };
+
+    adjust_layer {
+      // ----------------------------------------------------------------------------------
+      // | ? | ?    | ?    | ?    | RESET |  ?  | BT1 | BT2  | BT3  | BT4  | BT5 | BT CLR |
+      // | ? | ?    | ?    | ?    | ?     |  ?  |     |      |      |      |     |        |
+      // |   | MUTE | VOL- | VOL+ |       | BLE |     | PLAY | PREV | NEXT |     |        |
+      //                   |      |       |           |      |      |
+      bindings = <
+        &none      &none        &none        &reset      &none        &one         &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+        &none      &none        &none        &bootloader &none        &none        &none      &none        &none        &none        &none        &none
+        &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp         &out OUT_BLE &out OUT_BLE &none      &none        &kp C_PP     &kp C_PREV   &kp C_NEXT   &none
+        &trans     &trans       &trans       &trans      &trans
+        >;
+    };
+  };
+};

@@ -77,7 +77,7 @@
         &kp N1 &kp N2 &kp N3 &kp N4  &kp N5  &trans &trans &kp N6  &kp N7 &kp N8 &kp N9 &kp N0
         &trans &trans &trans &trans  &kp F11 &trans &trans &kp F12 &trans &trans &trans &trans
         &kp F1 &kp F2 &kp F3 &kp F4  &kp F5  &trans &trans &kp F6  &kp F7 &kp F8 &kp F9 &kp F10
-        &trans &trans &trans &kp L3  &trans
+        &trans &trans &trans &mo L3  &trans
         >;
     };
 
@@ -91,7 +91,7 @@
         &kp ESC   &kp LBKT &kp LBRC &kp RBRC &kp RBKT  &trans &trans &kp TILDE &kp GRAVE &kp SQT   &kp DQT   &kp PIPE
         &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT &trans &trans &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp BSLH
         &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR  &trans &trans &kp EQUAL &kp PLUS  &kp MINUS &kp UNDER &trans
-        &trans    &kp L3   &trans   &trans   &trans
+        &trans    &mo L3   &trans   &trans   &trans
         >;
     };
 

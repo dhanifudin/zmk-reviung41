@@ -60,52 +60,52 @@
       // | SHFT/{   | Z | X | C     | V       | B     | N  | M       | ,     | . | / | SHFT/} |
       //                    | ALT/( | LWR/SPC |  GUI/BSPC  | RSE/RET | ALT/) |
       bindings = <
-        &kp Q       &kp W       &kp E      &kp R      &kp T &kp LBKT  &kp RBKT  &kp Y &kp U      &kp I      &kp O       &kp P
-        &hm LCTRL A &hm LSHFT S &hm LALT D &hm LGUI F &kp G &kp MINUS &kp EQUAL &kp H &hm RGUI J &hm RALT K &hm RSHFT L &hm RCTRL SEMI
-        &kp Z       &kp X       &kp C      &kp V      &kp B &kp GRAVE &kp SQT   &kp N &kp M      &kp COMMA  &kp DOT     &kp FSLH
-        &lt L3 TAB  &lt L1 SPC  &kp ESC &lt L2 RET &kp BSPC
+        &kp Q         &kp W       &kp E      &kp R      &kp T &kp LBKT  &kp RBKT  &kp Y &kp U      &kp I      &kp O       &kp P
+        &hm LCTRL A   &hm LSHFT S &hm LALT D &hm LGUI F &kp G &kp MINUS &kp EQUAL &kp H &hm RGUI J &hm RALT K &hm RSHFT L &hm RCTRL SEMI
+        &kp Z         &kp X       &kp C      &kp V      &kp B &kp GRAVE &kp SQT   &kp N &kp M      &kp COMMA  &kp DOT     &kp FSLH
+        &hm LSHFT TAB &lt L1 SPC  &kp ESC    &lt L2 RET &hm RSHFT BSPC
         >;
     };
 
-    lower_layer {
+    num_layer {
       // -------------------------------------------------------
       // | `    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |  =   |
       // | BSPC | 6 | 7 | 8 | 9 | 0 |   |   |   |   |   | BSPC |
       // |      |   |   |   |   |   |   |   |   |   |   |  \   |
       //                |   |       |   |   |
       bindings = <
-        &kp N1 &kp N2 &kp N3 &kp N4  &kp N5  &trans &trans   &kp N6   &kp N7    &kp N8    &kp N9  &kp N0
-        &kp N6 &kp N7 &kp N8 &kp N9  &kp N0  &trans &trans   &kp HOME &kp PG_DN &kp PG_UP &kp END &trans
-        &trans &trans &trans &trans  &trans  &trans &kp BSLH &trans   &trans    &trans    &trans  &trans
-        &trans &trans &trans &trans  &trans
+        &kp N1 &kp N2 &kp N3 &kp N4  &kp N5  &trans &trans &kp N6  &kp N7 &kp N8 &kp N9 &kp N0
+        &trans &trans &trans &trans  &kp F11 &trans &trans &kp F12 &trans &trans &trans &trans
+        &kp F1 &kp F2 &kp F3 &kp F4  &kp F5  &trans &trans &kp F6  &kp F7 &kp F8 &kp F9 &kp F10
+        &trans &trans &trans &kp L3  &trans
         >;
     };
 
-    raise_layer {
+    sym_layer {
       // ---------------------------------------------------------------
       // | ~    | ! | @ | # | $ | % |  ^  |  &  |  *  |  (  | ) |  +   |
       // | BSPC | ^ | & | * | [ | ] | LFT | DWN |  UP | RGT | : | BSPC |
       // |      |   |   |   |   |   |     |     |     |     |   |  |   |
       //                |   |   |         |     |
       bindings = <
-        &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT &trans &trans   &kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR
-        &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT  &trans &trans   &kp LEFT  &kp DOWN &kp UP   &kp RIGHT &trans
-        &trans    &trans   &trans   &trans   &trans    &trans &kp PIPE &trans    &trans   &trans   &trans    &trans
-        &trans    &trans   &trans   &trans   &trans
+        &kp ESC   &kp LBKT &kp LBRC &kp RBRC &kp RBKT  &trans &trans &kp TILDE &kp GRAVE &kp SQT   &kp DQT   &kp PIPE
+        &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT &trans &trans &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp BSLH
+        &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR  &trans &trans &kp EQUAL &kp PLUS  &kp MINUS &kp UNDER &trans
+        &trans    &kp L3   &trans   &trans   &trans
         >;
     };
 
-    adjust_layer {
+    adj_layer {
       // ----------------------------------------------------------------------------------
       // | ? | ?    | ?    | ?    | RESET |  ?  | BT1 | BT2  | BT3  | BT4  | BT5 | BT CLR |
       // | ? | ?    | ?    | ?    | ?     |  ?  |     |      |      |      |     |        |
       // |   | MUTE | VOL- | VOL+ |       | BLE |     | PLAY | PREV | NEXT |     |        |
       //                   |      |       |           |      |      |
       bindings = <
-        &none &none      &none        &none        &reset       &none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
-   &none &none      &none        &none        &bootloader  &none        &none        &none        &none        &none        &none        &none
-   &none &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &none        &out OUT_BLE &none        &kp C_PP     &kp C_PREV   &kp C_NEXT   &none        &none
-                                 &trans       &trans       &trans       &trans       &trans
+        &none      &none        &none        &reset      &none        &none &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+        &none      &none        &none        &bootloader &none        &none &none &none        &none        &none        &none        &none
+        &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &none       &out OUT_BLE &none &none &bt BT_CLR   &kp C_PP     &kp C_PREV   &kp C_NEXT   &none
+        &trans     &trans       &trans       &trans      &trans
       >;
     };
   };

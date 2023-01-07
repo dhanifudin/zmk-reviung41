@@ -115,13 +115,13 @@
       // ---------------------------------------------------------
       // | + | - | * | & | = |   |   |   |     |     |     |     |
       // | ' | ^ | % | $ | " |   |   |   | GUI | ALT | SFT | CTL |
-      // | ` | # | @ | ! | \ |   |   |   |     |     |     |     |
-      //             |   |   |       |   |     |
+      // | ` | # | @ | ! | ~ |   |   |   |     |     |     |     |
+      //             | \ | | |       |   |     |
       bindings = <
         &kp PLUS  &kp MINUS &kp STAR  &kp AMPS &kp EQUAL &none &none &trans &trans &trans &trans &trans
         &kp SQT   &kp CARET &kp PRCNT &kp DLLR &kp DQT   &none &none &trans &trans &trans &trans &trans
-        &kp GRAVE &kp HASH  &kp AT    &kp EXCL &kp BSLH  &none &none &trans &trans &trans &trans &trans
-        &trans    &trans    &none     &trans   &trans
+        &kp GRAVE &kp HASH  &kp AT    &kp EXCL &kp TILDE &none &none &trans &trans &trans &trans &trans
+        &kp BSLH  &kp PIPE  &none     &trans   &trans
       >;
     };
 

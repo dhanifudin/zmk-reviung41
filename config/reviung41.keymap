@@ -67,7 +67,7 @@
       label = "TAP_DANCE_LBRC";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
-      bindings = <&kp T>, <&kp LBRC>;
+      bindings = <&kp G>, <&kp LBRC>;
     };
 
     tdrbrc: tap_dance_rbrc {

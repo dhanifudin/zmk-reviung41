@@ -26,6 +26,7 @@
 #define TAP_DANCE(NAME, TAP1, TAP2) \
   tap_dance_##NAME { \
     compatible = "zmk,behavior-tap-dance"; \
+    label = "TAP_DANCE"; \
     #binding-cells = <0>; \
     tapping-term-ms = <200>; \
     bindings = <TAP1>, <TAP2>; \

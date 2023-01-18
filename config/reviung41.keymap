@@ -12,7 +12,7 @@
 
 #define NAV 1
 #define NUM 2
-#define SYM 3
+#define PRG 3
 #define FUN 4
 
 #define COMBO(NAME, BINDINGS, KEYPOS) \
@@ -23,9 +23,14 @@
     layers = <0>; \
   };
 
-&mt {
-  tapping-term-ms = <200>;
-};
+#define TAP_DANCE(NAME, LABEL, TAP1, TAP2) \
+  tap_dance_##NAME { \
+    compatible = "zmk,behavior-tap-dance"; \
+    label = LABEL; \
+    #binding-cells = <0>; \
+    tapping-term-ms = <200>; \
+    bindings = <TAP1>, <TAP2>; \
+  };
 
 &lt {
   tapping-term-ms = <200>;
@@ -46,31 +51,27 @@
     combos {
       compatible = "zmk,combos";
 
-      COMBO(esckey, &kp ESC, 20 21)
-      COMBO(capsword, &caps_word, 15 20)
+      COMBO(esckey, &kp ESC, 20 21) // jk
+      COMBO(capsword, &caps_word, 15 20) // fj
     };
 
-    tdmin: tap_dance_min {
-       compatible = "zmk,behavior-tap-dance";
-       label = "TAP_DANCE_MIN";
-       #binding-cells = <0>;
-       tapping-term-ms = <200>;
-       bindings = <&kp MINUS>, <&kp UNDER>;
-    };
-    tdtilde: tap_dance_tilde {
-       compatible = "zmk,behavior-tap-dance";
-       label = "TAP_DANCE_TILDE";
-       #binding-cells = <0>;
-       tapping-term-ms = <200>;
-       bindings = <&kp TILDE>, <&kp GRAVE>;
-    };
-    tdpipe: tap_dance_pipe {
-       compatible = "zmk,behavior-tap-dance";
-       label = "TAP_DANCE_PIPE";
-       #binding-cells = <0>;
-       tapping-term-ms = <200>;
-       bindings = <&kp PIPE>, <&kp BSLH>;
-    };
+    tdlpar: TAP_DANCE(lpar, TAP_DANCE_LPAR, <&kp T>, <&kp LPAR>);
+    tdrpar: TAP_DANCE(rpar, TAP_DANCE_RPAR, <&kp Y>, <&kp RPAR>);
+
+    // tdlpar: tap_dance_min {
+    //    compatible = "zmk,behavior-tap-dance";
+    //    label = "TAP_DANCE_MIN";
+    //    #binding-cells = <0>;
+    //    tapping-term-ms = <200>;
+    //    bindings = <&kp MINUS>, <&kp UNDER>;
+    // };
+    // tdrpar: tap_dance_tilde {
+    //    compatible = "zmk,behavior-tap-dance";
+    //    label = "TAP_DANCE_TILDE";
+    //    #binding-cells = <0>;
+    //    tapping-term-ms = <200>;
+    //    bindings = <&kp TILDE>, <&kp GRAVE>;
+    // };
   };
 
   keymap {
@@ -83,10 +84,10 @@
       // | Z | X | C |  V  |  B  |   |   |  N  |  M  | , | . | / |
       //             | TAB | SPC |       | RET | BSP |
       bindings = <
-        &kp Q       &kp W       &kp E      &kp R      &kp T &none &none &kp Y &kp U      &kp I      &kp O       &kp P
-        &hm LCTRL A &hm LSHFT S &hm LALT D &hm LGUI F &kp G &none &none &kp H &hm RGUI J &hm RALT K &hm RSHFT L &hm RCTRL SEMI
-        &kp Z       &kp X       &kp C      &kp V      &kp B &none &none &kp N &kp M      &kp COMMA  &kp DOT     &kp FSLH
-        &lt NUM TAB &lt NAV SPC &none      &lt SYM RET &lt FUN BSPC
+        &kp Q       &kp W       &kp E      &kp R       &tdlpar &none &none &tdrpar &kp U      &kp I      &kp O       &kp P
+        &hm LCTRL A &hm LSHFT S &hm LALT D &hm LGUI F  &kp G   &none &none &kp H   &hm RGUI J &hm RALT K &hm RSHFT L &hm RCTRL SEMI
+        &kp Z       &kp X       &kp C      &kp V       &kp B   &none &none &kp N   &kp M      &kp COMMA  &kp DOT     &kp FSLH
+        &lt FUN TAB &lt NAV SPC &none      &lt PRG RET &lt NUM BSPC
       >;
     };
 
@@ -111,39 +112,41 @@
       // |     |     |     |     |   |   |   | 0 | 1 | 2 | 3 |   |
       //                   |     |   |       |   |
       bindings = <
-        &kp PLUS   &kp MINUS    &kp STAR     &kp SLASH &kp EQUAL &none &none &kp COMMA &kp N7 &kp N8 &kp N9 &trans
-        &trans     &trans       &trans       &trans    &trans    &none &none &kp DOT   &kp N4 &kp N5 &kp N6 &trans
-        &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &trans    &trans    &none &none &kp N0    &kp N1 &kp N2 &kp N3 &trans
-        &trans     &trans       &none        &trans    &trans
+        &trans &kp N9 &kp N8 &kp N7 &kp COMMA &none &none &kp EQUAL &kp SLASH &kp STAR &kp MINUS &kp PLUS
+        &trans &kp N6 &kp N5 &kp N4 &kp DOT   &none &none &trans    &trans    &trans   &trans    &trans
+        &trans &kp N3 &kp N2 &kp N1 &kp N0    &none &none &trans    &trans    &trans   &trans    &trans
+        &trans &trans &none  &trans &trans
         >;
     };
 
-    sym_layer {
+    prg_layer {
       // ---------------------------------------------------------
       // | + | - | * | & | = |   |   |   |     |     |     |     |
       // | ' | ^ | % | $ | " |   |   |   | GUI | ALT | SFT | CTL |
       // | ` | # | @ | ! | ~ |   |   |   |     |     |     |     |
       //             | \ | | |       |   |     |
       bindings = <
-        &kp PLUS &tdmin    &kp STAR  &kp AMPS &kp EQUAL &none &none &trans &trans &trans &trans &trans
-        &kp SQT  &kp CARET &kp PRCNT &kp DLLR &kp DQT   &none &none &trans &trans &trans &trans &trans
-        &tdtilde &kp HASH  &kp AT    &kp EXCL &tdpipe   &none &none &trans &trans &trans &trans &trans
-        &trans   &trans    &none     &trans   &trans
+        &kp TILDE &kp GRAVE &kp STAR  &kp AMPS &kp GRAVE &none &none &trans &trans &trans &kp UNDER &kp EQUAL
+        &kp SQT   &kp CARET &kp PRCNT &kp DLLR &kp DQT   &none &none &trans &trans &trans &trans    &trans
+        &kp BSLH  &kp HASH  &kp AT    &kp EXCL &kp PIPE  &none &none &trans &trans &trans &trans    &trans
+        &trans    &trans    &none     &trans   &trans
       >;
     };
 
     fun_layer {
       // ------------------------------------------------------------------
-      // | F12 | F7 | F8 | F9 |   |   |   | BT0 | BT1 | BT2 | BT3 | BT4 |
-      // | F11 | F4 | F5 | F6 |   |   |   |     | GUI | ALT | SFT | CTL |
-      // | F10 | F1 | F2 | F3 |   |   |   |     | PP  | NEX | PRE |     |
+      // | F12 | F9 | F8 | F7 |   |   |   | BT0 | BT1 | BT2 | BT3 | BT4 |
+      // | F11 | F6 | F5 | F4 |   |   |   |     | GUI | ALT | SFT | CTL |
+      // | F10 | F3 | F2 | F1 |   |   |   |     | PP  | NEX | PRE |     |
       //                 |    |   |       |     |     |
       bindings = <
-        &kp F12 &kp F7 &kp F8 &kp F9 &trans &none &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
-        &kp F11 &kp F4 &kp F5 &kp F6 &trans &none &none &bootloader  &trans       &trans       &trans       &bt BT_CLR
-        &kp F10 &kp F1 &kp F2 &kp F3 &trans &none &none &trans       &kp C_PP     &kp C_PREV   &kp C_NEXT   &trans
+        &kp F12 &kp F9 &kp F8 &kp F7 &trans &none &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+        &kp F11 &kp F6 &kp F5 &kp F4 &trans &none &none &bootloader  &trans       &trans       &trans       &bt BT_CLR
+        &kp F10 &kp F3 &kp F2 &kp F1 &trans &none &none &trans       &kp C_PP     &kp C_PREV   &kp C_NEXT   &trans
         &trans  &trans &none  &trans &trans
       >;
     };
   };
 };
+
+// vim: set ft=c:

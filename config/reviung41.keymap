@@ -62,7 +62,7 @@
        bindings = <&kp Y>, <&kp RPAR>;
     };
 
-    tdlbrc: tap_dance_lpar {
+    tdlbrc: tap_dance_lbrc {
       compatible = "zmk,behavior-tap-dance";
       label = "TAP_DANCE_LBRC";
       #binding-cells = <0>;

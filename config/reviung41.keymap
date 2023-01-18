@@ -51,8 +51,8 @@
     combos {
       compatible = "zmk,combos";
 
-      COMBO(esckey, &kp ESC, 20 21) // jk
-      COMBO(capsword, &caps_word, 15 20) // fj
+      COMBO(esckey, &kp ESC, 20 21)
+      COMBO(capsword, &caps_word, 15 20)
     };
 
     tdlpar: TAP_DANCE(lpar, &kp T, &kp LPAR);

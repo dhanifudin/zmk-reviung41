@@ -23,15 +23,6 @@
     layers = <0>; \
   };
 
-#define TAP_DANCE(NAME, TAP1, TAP2) \
-  tap_dance_##NAME { \
-    compatible = "zmk,behavior-tap-dance"; \
-    label = "TAP_DANCE"; \
-    #binding-cells = <0>; \
-    tapping-term-ms = <200>; \
-    bindings = <TAP1>, <TAP2>; \
-  };
-
 &lt {
   tapping-term-ms = <200>;
 };
@@ -55,23 +46,22 @@
       COMBO(capsword, &caps_word, 15 20)
     };
 
-    tdlpar: TAP_DANCE(lpar, &kp T, &kp LPAR);
-    tdrpar: TAP_DANCE(rpar, &kp Y, &kp RPAR);
+    tdlpar: tap_dance_lpar {
+       compatible = "zmk,behavior-tap-dance";
+       label = "TAP_DANCE_LPAR";
+       #binding-cells = <0>;
+       tapping-term-ms = <200>;
+       bindings = <&kp T>, <&kp LPAR>;
+    };
 
-    // tdlpar: tap_dance_min {
-    //    compatible = "zmk,behavior-tap-dance";
-    //    label = "TAP_DANCE_MIN";
-    //    #binding-cells = <0>;
-    //    tapping-term-ms = <200>;
-    //    bindings = <&kp MINUS>, <&kp UNDER>;
-    // };
-    // tdrpar: tap_dance_tilde {
-    //    compatible = "zmk,behavior-tap-dance";
-    //    label = "TAP_DANCE_TILDE";
-    //    #binding-cells = <0>;
-    //    tapping-term-ms = <200>;
-    //    bindings = <&kp TILDE>, <&kp GRAVE>;
-    // };
+    tdrpar: tap_dance_rpar {
+       compatible = "zmk,behavior-tap-dance";
+       label = "TAP_DANCE_RPAR";
+       #binding-cells = <0>;
+       tapping-term-ms = <200>;
+       bindings = <&kp Y>, <&kp RPAR>;
+    };
+
   };
 
   keymap {

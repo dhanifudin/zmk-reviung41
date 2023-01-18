@@ -55,8 +55,8 @@
       COMBO(capsword, &caps_word, 15 20) // fj
     };
 
-    tdlpar: TAP_DANCE(lpar, TAP_DANCE_LPAR, <&kp T>, <&kp LPAR>);
-    tdrpar: TAP_DANCE(rpar, TAP_DANCE_RPAR, <&kp Y>, <&kp RPAR>);
+    tdlpar: TAP_DANCE(lpar, TAP_DANCE_LPAR, &kp T, &kp LPAR);
+    tdrpar: TAP_DANCE(rpar, TAP_DANCE_RPAR, &kp Y, &kp RPAR);
 
     // tdlpar: tap_dance_min {
     //    compatible = "zmk,behavior-tap-dance";

@@ -62,6 +62,37 @@
        bindings = <&kp Y>, <&kp RPAR>;
     };
 
+    tdlbrc: tap_dance_lpar {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_LBRC";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp G>, <&kp LBRC>;
+    };
+
+    tdrbrc: tap_dance_rbrc {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_RBRC";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp H>, <&kp RBRC>;
+    };
+
+    tdlbkt: tap_dance_lbkt {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_LBKT";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp B>, <&kp LBKT>;
+    };
+
+    tdrbkt: tap_dance_rbkt {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_RBKT";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp N>, <&kp RBKT>;
+    };
   };
 
   keymap {
@@ -74,33 +105,33 @@
       // | Z | X | C |  V  |  B  |   |   |  N  |  M  | , | . | / |
       //             | TAB | SPC |       | RET | BSP |
       bindings = <
-        &kp Q       &kp W       &kp E      &kp R       &tdlpar &none &none &tdrpar &kp U      &kp I      &kp O       &kp P
-        &hm LCTRL A &hm LSHFT S &hm LALT D &hm LGUI F  &kp G   &none &none &kp H   &hm RGUI J &hm RALT K &hm RSHFT L &hm RCTRL SEMI
-        &kp Z       &kp X       &kp C      &kp V       &kp B   &none &none &kp N   &kp M      &kp COMMA  &kp DOT     &kp FSLH
+        &kp Q       &kp W       &kp E      &kp R       &tdlpar      &none &none &tdrpar &kp U      &kp I      &kp O       &kp P
+        &hm LCTRL A &hm LSHFT S &hm LALT D &hm LGUI F  &tdlbrc      &none &none &tdrbrc &hm RGUI J &hm RALT K &hm RSHFT L &hm RCTRL SEMI
+        &kp Z       &kp X       &kp C      &kp V       &tdlbkt      &none &none &tdrbkt &kp M      &kp COMMA  &kp DOT     &kp FSLH
         &lt FUN TAB &lt NAV SPC &none      &lt PRG RET &lt NUM BSPC
       >;
     };
 
     nav_layer {
       // -------------------------------------------------
-      // |   |   |   |   |   |   |   |   | { | } | ( | ) |
+      // |   |   |   |   |   |   |   |   |   |   |   |   |
       // |   |   |   |   |   |   |   | L | D | U | R |   |
-      // |   |   |   |   |   |   |   | [ | ] |   |   |   |
+      // |   |   |   |   |   |   |   |   |   |   |   |   |
       //             |   |   |       |   |   |
       bindings = <
-        &trans &trans &trans &trans &trans &none &none &trans   &kp LBRC &kp RBRC &kp LPAR  &kp RPAR
-        &trans &trans &trans &trans &trans &none &none &kp LEFT &kp DOWN &kp UP   &kp RIGHT &trans
-        &trans &trans &trans &trans &trans &none &none &kp LBKT &kp RBKT &trans   &trans    &trans
+        &trans &trans &trans &trans &trans &none &none &trans   &trans      &kp INS   &trans    &trans
+        &trans &trans &trans &trans &trans &none &none &kp LEFT &kp DOWN    &kp UP    &kp RIGHT &trans
+        &trans &trans &trans &trans &trans &none &none &kp HOME &kp PG_DOWN &kp PG_UP &kp END   &trans
         &trans &trans &none  &trans &trans
       >;
     };
 
     num_layer {
       // ---------------------------------------------------------
-      // |  +  |  -  |  *  |  /  | = |   |   | , | 7 | 8 | 9 |   |
-      // | CTL | SFT | ALT | GUI |   |   |   | . | 4 | 5 | 6 |   |
-      // |     |     |     |     |   |   |   | 0 | 1 | 2 | 3 |   |
-      //                   |     |   |       |   |
+      // |   | 9 | 8 | 7 | , |   |   | , | 7 | 8 | 9 |   |
+      // |   | 6 | 5 | 4 | . |   |   | . | 4 | 5 | 6 |   |
+      // |   | 3 | 2 | 1 | 0 |   |   | 0 | 1 | 2 | 3 |   |
+      //             |   |   |       |   |   |
       bindings = <
         &trans &kp N9 &kp N8 &kp N7 &kp COMMA &none &none &kp EQUAL &kp SLASH &kp STAR &kp MINUS &kp PLUS
         &trans &kp N6 &kp N5 &kp N4 &kp DOT   &none &none &trans    &trans    &trans   &trans    &trans
@@ -116,9 +147,9 @@
       // | ` | # | @ | ! | ~ |   |   |   |     |     |     |     |
       //             | \ | | |       |   |     |
       bindings = <
-        &kp TILDE &kp GRAVE &kp STAR  &kp AMPS &kp GRAVE &none &none &trans &trans &trans &kp UNDER &kp EQUAL
-        &kp SQT   &kp CARET &kp PRCNT &kp DLLR &kp DQT   &none &none &trans &trans &trans &trans    &trans
-        &kp BSLH  &kp HASH  &kp AT    &kp EXCL &kp PIPE  &none &none &trans &trans &trans &trans    &trans
+        &kp TILDE &kp MINUS &kp STAR  &kp AMPS &kp GRAVE &none &none &trans &trans &trans &kp UNDER &kp EQUAL
+        &kp DQT   &kp CARET &kp PRCNT &kp DLLR &kp SQT   &none &none &trans &trans &trans &trans    &trans
+        &kp PIPE  &kp HASH  &kp AT    &kp EXCL &kp BSLH  &none &none &trans &trans &trans &trans    &trans
         &trans    &trans    &none     &trans   &trans
       >;
     };

@@ -12,8 +12,9 @@
 
 #define NAV 1
 #define NUM 2
-#define PRG 3
-#define FUN 4
+#define SYM 3
+#define PRG 4
+#define FUN 5
 
 #define COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
@@ -46,54 +47,54 @@
       COMBO(capsword, &caps_word, 15 20)
     };
 
-    tdlpar: tap_dance_lpar {
-       compatible = "zmk,behavior-tap-dance";
-       label = "TAP_DANCE_LPAR";
-       #binding-cells = <0>;
-       tapping-term-ms = <200>;
-       bindings = <&kp T>, <&kp LPAR>;
-    };
-
-    tdrpar: tap_dance_rpar {
-       compatible = "zmk,behavior-tap-dance";
-       label = "TAP_DANCE_RPAR";
-       #binding-cells = <0>;
-       tapping-term-ms = <200>;
-       bindings = <&kp Y>, <&kp RPAR>;
-    };
-
-    tdlbrc: tap_dance_lbrc {
-      compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_LBRC";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp G>, <&kp LBRC>;
-    };
-
-    tdrbrc: tap_dance_rbrc {
-      compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_RBRC";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp H>, <&kp RBRC>;
-    };
-
-    tdlbkt: tap_dance_lbkt {
-      compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_LBKT";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp B>, <&kp LBKT>;
-    };
-
-    tdrbkt: tap_dance_rbkt {
-      compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_RBKT";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp N>, <&kp RBKT>;
-    };
-  };
+  //   tdlpar: tap_dance_lpar {
+  //      compatible = "zmk,behavior-tap-dance";
+  //      label = "TAP_DANCE_LPAR";
+  //      #binding-cells = <0>;
+  //      tapping-term-ms = <200>;
+  //      bindings = <&kp T>, <&kp LPAR>;
+  //   };
+  //
+  //   tdrpar: tap_dance_rpar {
+  //      compatible = "zmk,behavior-tap-dance";
+  //      label = "TAP_DANCE_RPAR";
+  //      #binding-cells = <0>;
+  //      tapping-term-ms = <200>;
+  //      bindings = <&kp Y>, <&kp RPAR>;
+  //   };
+  //
+  //   tdlbrc: tap_dance_lbrc {
+  //     compatible = "zmk,behavior-tap-dance";
+  //     label = "TAP_DANCE_LBRC";
+  //     #binding-cells = <0>;
+  //     tapping-term-ms = <200>;
+  //     bindings = <&kp G>, <&kp LBRC>;
+  //   };
+  //
+  //   tdrbrc: tap_dance_rbrc {
+  //     compatible = "zmk,behavior-tap-dance";
+  //     label = "TAP_DANCE_RBRC";
+  //     #binding-cells = <0>;
+  //     tapping-term-ms = <200>;
+  //     bindings = <&kp H>, <&kp RBRC>;
+  //   };
+  //
+  //   tdlbkt: tap_dance_lbkt {
+  //     compatible = "zmk,behavior-tap-dance";
+  //     label = "TAP_DANCE_LBKT";
+  //     #binding-cells = <0>;
+  //     tapping-term-ms = <200>;
+  //     bindings = <&kp B>, <&kp LBKT>;
+  //   };
+  //
+  //   tdrbkt: tap_dance_rbkt {
+  //     compatible = "zmk,behavior-tap-dance";
+  //     label = "TAP_DANCE_RBKT";
+  //     #binding-cells = <0>;
+  //     tapping-term-ms = <200>;
+  //     bindings = <&kp N>, <&kp RBKT>;
+  //   };
+  // };
 
   keymap {
     compatible = "zmk,keymap";
@@ -105,10 +106,10 @@
       // | Z | X | C |  V  |  B  |   |   |  N  |  M  | , | . | / |
       //             | TAB | SPC |       | RET | BSP |
       bindings = <
-        &kp Q       &kp W       &kp E      &kp R       &tdlpar      &none &none &tdrpar &kp U      &kp I      &kp O       &kp P
-        &hm LCTRL A &hm LSHFT S &hm LALT D &hm LGUI F  &tdlbrc      &none &none &tdrbrc &hm RGUI J &hm RALT K &hm RSHFT L &hm RCTRL SEMI
-        &kp Z       &kp X       &kp C      &kp V       &tdlbkt      &none &none &tdrbkt &kp M      &kp COMMA  &kp DOT     &kp FSLH
-        &lt FUN TAB &lt NAV SPC &none      &lt PRG RET &lt NUM BSPC
+        &kp Q       &kp W       &kp E      &kp R       &kp T        &none &none &kp Y &kp U      &kp I      &kp O       &kp P
+        &hm LCTRL A &hm LSHFT S &hm LALT D &hm LGUI F  &kp G        &none &none &kp H &hm RGUI J &hm RALT K &hm RSHFT L &hm RCTRL SEMI
+        &kp Z       &kp X       &kp C      &kp V       &kp B        &none &none &kp N &kp M      &kp COMMA  &kp DOT     &kp FSLH
+        &lt NAV TAB &lt PRG SPC &mo FUN    &lt SYM RET &lt NUM BSPC
       >;
     };
 
@@ -128,10 +129,10 @@
 
     num_layer {
       // ---------------------------------------------------------
-      // |   | 9 | 8 | 7 | , |   |   | , | 7 | 8 | 9 |   |
-      // |   | 6 | 5 | 4 | . |   |   | . | 4 | 5 | 6 |   |
-      // |   | 3 | 2 | 1 | 0 |   |   | 0 | 1 | 2 | 3 |   |
-      //             |   |   |       |   |   |
+      // |LPAR| 9 | 8 | 7 | , |   |   | = | / | * | - | + |
+      // |RPAR| 6 | 5 | 4 | . |   |   |   |   |   |   |   |
+      // |    | 3 | 2 | 1 | 0 |   |   |   |   |   |   |   |
+      //              |   |   |       |   |   |
       bindings = <
         &trans &kp N9 &kp N8 &kp N7 &kp COMMA &none &none &kp EQUAL &kp SLASH &kp STAR &kp MINUS &kp PLUS
         &trans &kp N6 &kp N5 &kp N4 &kp DOT   &none &none &trans    &trans    &trans   &trans    &trans
@@ -140,18 +141,32 @@
         >;
     };
 
-    prg_layer {
+    sym_layer {
       // ---------------------------------------------------------
-      // | + | - | * | & | = |   |   |   |     |     |     |     |
-      // | ' | ^ | % | $ | " |   |   |   | GUI | ALT | SFT | CTL |
-      // | ` | # | @ | ! | ~ |   |   |   |     |     |     |     |
-      //             | \ | | |       |   |     |
+      // | ~ | - | * | & | ` |   |   |   |     |     |  _  |  =  |
+      // | " | ^ | % | $ | ' |   |   |   | GUI | ALT | SFT | CTL |
+      // | | | # | @ | ! | \ |   |   |   |     |     |     |     |
+      //             |   |   |       |   |     |
       bindings = <
         &kp TILDE &kp MINUS &kp STAR  &kp AMPS &kp GRAVE &none &none &trans &trans &trans &kp UNDER &kp EQUAL
         &kp DQT   &kp CARET &kp PRCNT &kp DLLR &kp SQT   &none &none &trans &trans &trans &trans    &trans
         &kp PIPE  &kp HASH  &kp AT    &kp EXCL &kp BSLH  &none &none &trans &trans &trans &trans    &trans
         &trans    &trans    &none     &trans   &trans
       >;
+    };
+
+    prg_layer {
+      // ---------------------------------------------------------
+      // | + | - | * | & | = |   |   |   |     |     |     |     |
+      // | ' | ^ | % | $ | " |   |   |   | GUI | ALT | SFT | CTL |
+      // | ` | # | @ | ! | ~ |   |   |   |     |     |     |     |
+      //             |   |   |       |   |     |
+      bindings = <
+        &kp TILDE &kp MINUS &kp STAR  &kp AMPS &kp GRAVE &none &none &trans &trans &trans &kp UNDER &kp EQUAL
+        &kp DQT   &kp CARET &kp PRCNT &kp DLLR &kp SQT   &none &none &trans &trans &trans &trans    &trans
+        &kp PIPE  &kp HASH  &kp AT    &kp EXCL &kp BSLH  &none &none &trans &trans &trans &trans    &trans
+        &trans    &trans    &none     &trans   &trans
+        >;
     };
 
     fun_layer {

@@ -14,16 +14,29 @@
 #define L2 2
 #define L3 3
 
+#define COMBO(NAME, BINDINGS, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <0>; \
+  };
+
 &mt {
-  tapping-term-ms = <300>;
+  tapping-term-ms = <200>;
 };
 
 &lt {
-  tapping-term-ms = <300>;
+  tapping-term-ms = <200>;
 };
 
 / {
 	behaviors {
+    combos {
+      compatible = "zmk,combos";
+      COMBO(capsword, &caps_word, 16 19)
+    };
+
     tdl: tap_dance_l {
       compatible = "zmk,behavior-tap-dance";
       label = "TAP_DANCE_L";

@@ -89,6 +89,20 @@
       >;
     };
 
+    num_layer {
+// ---------------------------------------------------------------
+// | ~    | ! | @ | # | $ | % |  ^  |  &  |  *  |  (  | ) |  +   |
+// | BSPC | ^ | & | * | [ | ] | LFT | DWN |  UP | RGT | : | BSPC |
+// |      |   |   |   |   |   |     |     |     |     |   |  |   |
+//                |   |   |         |     |
+      bindings = <
+        &none &kp trans &trans &trans &trans &trans      &trans  &kp N7 &kp N8 &kp N9 &trans &none
+        &none &kp trans &trans &trans &trans &trans      &trans  &kp N4 &kp N5 &kp N6 &trans &none
+        &none &kp trans &trans &trans &trans &trans      &kp N0  &kp N1 &kp N2 &kp N3 &trans &none
+                        &trans              &trans       &trans &mo FUN &trans
+      >;
+    };
+
     fun_layer {
 // ----------------------------------------------------------------------------------
 // | ? | ?    | ?    | ?    | RESET |  ?  | BT1 | BT2  | BT3  | BT4  | BT5 | BT CLR |

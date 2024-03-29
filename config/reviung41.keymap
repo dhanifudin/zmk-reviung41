@@ -34,13 +34,13 @@
 	behaviors {
     combos {
       compatible = "zmk,combos";
-      COMBO(capsword, &caps_word, 16 19)
-      COMBO(lctrl, &kp LCTRL, 13 14)
-      COMBO(lalt, &kp LALT, 14 15)
-      COMBO(lgui, &kp LGUI, 15 16)
-      COMBO(rctrl, &kp RCTRL, 21 22)
-      COMBO(ralt, &kp RALT, 20 21)
-      COMBO(rgui, &kp RGUI, 19 20)
+      COMBO(capsword, &caps_word, 16 19);
+      COMBO(lctrl, &kp LCTRL, 13 14);
+      COMBO(lalt, &kp LALT, 14 15);
+      COMBO(lgui, &kp LGUI, 15 16);
+      COMBO(rctrl, &kp RCTRL, 21 22);
+      COMBO(ralt, &kp RALT, 20 21);
+      COMBO(rgui, &kp RGUI, 19 20);
     };
 	};
 
@@ -82,7 +82,7 @@
 // |      |   |   |   |   |   |     |     |     |     |   |  |   |
 //                |   |   |         |     |
       bindings = <
-        &none &kp SQT   &kp QUOTE &kp STAR  &kp AMPERSAND &kp MINUS  &trans  &trans &trans &trans &trans &none
+        &none &kp SQT   &kp QUOTE &kp STAR  &kp AMPS &kp MINUS  &trans  &trans &trans &trans &trans &none
         &none &kp ESC   &kp CARET &kp PRCNT &kp DLLR &kp EQUAL       &trans  &trans &trans &trans &trans &none
         &none &kp GRAVE &kp HASH  &kp AT    &kp EXCL &kp BSLH        &trans  &trans &trans &trans &trans &none
                         &trans              &trans           &trans &mo FUN &trans

@@ -82,7 +82,7 @@
 // |      |   |   |   |   |   |     |     |     |     |   |  |   |
 //                |   |   |         |     |
       bindings = <
-        &none &kp SQT   &trans &kp STAR  &trans &trans        &trans  &trans &trans &trans &trans &none
+        &none &kp SQT   &kp DQT   &kp STAR  &kp AMPS &kp MINUS        &trans  &trans &trans &trans &trans &none
         &none &kp ESC   &kp CARET &kp PRCNT &kp DLLR &kp EQUAL        &trans  &trans &trans &trans &trans &none
         &none &kp GRAVE &kp HASH  &kp AT    &kp EXCL &kp BSLH         &trans  &trans &trans &trans &trans &none
                         &trans              &trans             &trans &mo FUN &trans
